@@ -1,0 +1,11 @@
+name: Test Pixel as a Service
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6.0.1
+      - name: install
+        run: apt-get -y install python3-pil
