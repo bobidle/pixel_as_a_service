@@ -8,4 +8,4 @@ jobs:
       - name: checkout
         uses: actions/checkout@v6.0.1
       - name: install
-        run: apt-get -y install python3-pil
+        run: sudo apt-get -y install python3-pil
