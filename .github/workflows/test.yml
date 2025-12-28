@@ -11,7 +11,9 @@ jobs:
         run: sudo apt-get -y install python3-pil
       - name: run
         env:
+          IMAGE: ${{ secrets.IMAGE }}
           PORT: ${{ secrets.PORT }}
           SERVER: ${{ secrets.SERVER }}
         run: |
+          wget "$IMAGE" -O image.png
           python3 pixel.py
