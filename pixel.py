@@ -27,7 +27,7 @@ def rgba(x, y, r, g, b, a=255):
 def screen_size():
   sock.send(b'SIZE')
   _, x, y = sock.recv(24).decode("utf-8").split()
-  return x, y
+  return int(x), int(y)
 
 image = Image.open('image.png').convert('RGBA')
 _, _, w, h = image.getbbox()
