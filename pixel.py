@@ -14,7 +14,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect((server, int(port)))
 
 def offset(x, y):
-  sock.send(b'OFFSET %d %d' % (x, y))
+  sock.send(b'OFFSET %d %d\n' % (x, y))
 
 def rgb(x, y, r, g, b):
   sock.send(b'PX %d %d %02x%02x%02x\n' % (x, y, r, g, b))
@@ -34,8 +34,9 @@ image = Image.open('image.png').convert('RGBA')
 _, _, w, h = image.getbbox()
 
 max_x, max_y = screen_size()
-offset_x = 450
+offset_x = max_x//2
 offset_y = 0
+offset(offset_x, offset_y)
 
 while True:
   for x in range(w):
@@ -44,5 +45,4 @@ while True:
       image_y = y + offset_y
       if image_x <= max_x and image_y <= max_y:
         r, g, b, a = image.getpixel((x, y))
-        offset(offset_x, offset_y)
         rgb(x, y, r, g, b)
