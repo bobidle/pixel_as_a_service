@@ -1,6 +1,11 @@
 name: Test Pixel as a Service
+
 on:
   workflow_dispatch:
+
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-22.04
