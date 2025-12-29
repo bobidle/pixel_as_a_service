@@ -3,6 +3,15 @@ name: Test Pixel as a Service
 
 on:
   workflow_dispatch:
+    inputs:
+      offset-x:
+        default: 0
+        reqired: false
+        type: number
+      offset-y:
+        default: 0
+        type: number
+
 
 permissions:
   contents: read
@@ -19,6 +28,8 @@ jobs:
       - name: run
         env:
           IMAGE: ${{ secrets.IMAGE }}
+          OFFSET_X: ${{ inputs.offset-x }}
+          OFFSET_Y: ${{ inputs.offset-y }}
           PORT: ${{ secrets.PORT }}
           SERVER: ${{ secrets.SERVER }}
         run: |
