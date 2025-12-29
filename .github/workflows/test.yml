@@ -16,5 +16,5 @@ jobs:
           PORT: ${{ secrets.PORT }}
           SERVER: ${{ secrets.SERVER }}
         run: |
-          wget "$IMAGE" -O image.png
+          wget --quiet "$IMAGE" --output-document image.png
           python3 pixel.py
