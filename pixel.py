@@ -36,7 +36,6 @@ _, _, w, h = image.getbbox()
 max_x, max_y = screen_size()
 offset_x = 450
 offset_y = 0
-offset(offset_x, offset_y)
 
 while True:
   for x in range(w):
@@ -45,4 +44,5 @@ while True:
       image_y = y + offset_y
       if image_x <= max_x and image_y <= max_y:
         r, g, b, a = image.getpixel((x, y))
+        offset(offset_x, offset_y)
         rgb(x, y, r, g, b)
