@@ -7,7 +7,7 @@ import socket
 import threading
 from PIL import Image
 
-port = os.getenv('PORT')
+port = os.getenv('PORT') if os.getenv('PORT') != None else '1234'
 server = os.getenv('SERVER')
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect((server, int(port)))
