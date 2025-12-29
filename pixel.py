@@ -2,9 +2,10 @@
 
 import os
 import random
-import sys
 import socket
+import sys
 import threading
+
 from PIL import Image
 
 port = os.getenv('PORT') if os.getenv('PORT') != None else '1234'
